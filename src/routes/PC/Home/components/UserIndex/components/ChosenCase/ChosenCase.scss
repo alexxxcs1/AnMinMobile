@@ -1,0 +1,76 @@
+.AllCaseBox{
+    width: 100%;
+    max-width: 1366px;
+
+    .ListBox{
+        margin: 52px 0;
+        width: 1200px;
+        min-height: 600px;
+        background: #fff;
+        box-shadow: #f1f1f1 0 0 50px;
+        .TableBox{
+            margin: 31px 0;
+            width: 1136px;
+
+            .TableHead{
+                width: 100%;
+                height: 54px;
+                background: #F2F2F2;
+                text-indent: 22px;
+                font-size:18px;
+                font-weight: bold;
+                color: rgba($color: #000000, $alpha: 0.8);
+            }
+
+            .TableBody{
+                width: 100%;
+                text-indent: 22px;
+            }
+            .TableRow{
+                width: 100%;
+                height: 57px;
+                font-size:18px;
+                box-shadow: rgba($color: #B5B5B5, $alpha: 0.5) 0 -1px 0px inset;
+            }
+            .TableColumn{
+                height: 100%;
+            }
+            .ValueInput{
+                display: block;
+                // width: 253px;
+                flex-grow: 1;
+                height: 100%;
+                outline: none;
+                margin-left: 22px;
+                font-size: 18px;
+                color: rgba($color: #000000, $alpha: 0.7);
+                background: transparent;
+                font-weight: 300;
+            }
+            .CheckInfo{
+                font-size:18px;
+                text-decoration:underline !important;
+                font-weight: 300;
+                color: rgba($color: #000000, $alpha: 0.7);
+            }
+            .Timespan{
+                font-size: 18px;
+                color: rgba($color: #000000, $alpha: 0.7);
+                font-weight: 300;
+            }
+            .HandleButtonGroup{
+                height: 100%;
+                flex-shrink: 0;
+                font-size:12px;
+                text-indent: 0px;
+                text-decoration:underline !important;
+                color: rgba($color: #000000, $alpha: 0.4);
+                div{
+                    margin: 22px;
+                    font-size: 12px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

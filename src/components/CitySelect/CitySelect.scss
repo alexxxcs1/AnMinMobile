@@ -1,0 +1,79 @@
+.SelectBox{
+    width: 100%;
+    height: 100%;
+    // background: #000;
+    outline: none;
+    .SelectedValue{
+        width: 100%;
+        height: 100%;
+    }
+    .DropBox{
+        width: 100%;
+        height: 600px;
+        position: absolute;
+        bottom: 0px;
+        background: rgba($color: #f1f1f1, $alpha: 1);
+    }
+    .HandleBox{
+        width: 100%;
+        height: 80px;
+        box-shadow:rgba($color: #000000, $alpha: 0.3) 0 0 10px ;
+        .ButtonBox{
+            width: 50%;
+            height: 100%;
+            // background: red;
+            position: relative;
+            .Button{
+                width: 150px;
+                height: 60%;
+                margin: 0 40px;
+                border-radius: 10px;
+                background: rgba($color: #f1f1f1, $alpha: 0.5);
+                box-shadow:rgba($color: #000000, $alpha: 0.1) 0 0 5px 1px ;
+                font-size: 30px;
+                font-weight: 600;
+                color: rgba($color: #000000, $alpha: 0.6);
+            }
+        }
+    }
+    .ListBox{
+        width: 100%;
+        height: calc(100% - 80px);
+        // background: red;
+        .ListHead{
+            width: 100%;
+            height: 60px;
+            background: rgba($color: #f1f1f1, $alpha: 0.5);
+            font-size: 30px;
+        }
+        .ListBody{
+            width: 100%;
+            height: calc(100% - 60px);
+        }
+        .Column{
+            width: 33%;
+            height: 100%;
+            overflow: auto;
+            // background: #f1f1f1;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+            .Lists{
+                width: 100%;
+                position: absolute;
+                background-color: transparent;
+                transition: top 0.1s;
+                .Selected{
+                    background: rgba($color: #ff5a00, $alpha: 0.3);
+                    font-weight: bold;
+                }
+                .SelectButton{
+                    width: 100%;
+                    height: 60px;
+                    font-size: 28px;
+                }
+            }
+            
+        }
+    }
+}

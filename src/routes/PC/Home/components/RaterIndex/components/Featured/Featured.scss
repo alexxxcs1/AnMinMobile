@@ -1,0 +1,143 @@
+.FeaturedBox{
+    width: 100%;
+    max-width: 1366px;
+
+    .ListBox{
+        margin: 52px 0;
+        width: 1200px;
+        min-height: 600px;
+        background: #fff;
+        box-shadow: #f1f1f1 0 0 50px;
+        .ListTitle{
+            width: 1136px;
+            font-size: 21px;
+            font-weight:400;
+            color: #000;
+            margin-top: 36px;
+            .TitleValue{
+                flex-shrink: 0;
+            }
+            .TitleRight{
+                flex-grow: 1;
+
+                .SelectedValue{
+                    width: 78px;
+                    height: 36px;
+                    font-size:16px;
+                    box-shadow:rgba(229,229,229,1) 0 0 0 1px inset;
+                    border-radius:6px;
+                    font-weight:300;
+                    color:rgba(163,163,163,1);
+                    background: #fff;
+
+                    .dropTips{
+                        margin-left: 7px;
+                        display: block;
+                        width: 0px;
+                        height: 0px;
+                        border-bottom: transparent 0px solid;
+                        border-top: #A3A3A3 9px solid;
+                        border-left: transparent 6.5px solid;
+                        border-right: transparent 6.5px solid;
+                    }
+                }
+                .OptionBox{
+                    width: 100%;
+                    height: 150px;
+                    background: #fff;
+                    box-shadow: rgba(229,229,229,1) 0 0 0 1px inset;
+                    border-radius:6px;
+                }
+                .Option{
+                    width: 100%;
+                    height: 48px;
+                    font-size:16px;
+                    font-weight:300;
+                    color:rgba(163,163,163,1);
+                    cursor: pointer;
+                }
+                .ActOption{
+                    color: #F67935;
+                    font-weight: bold;
+                }
+
+                .SelectInputBox{
+                    margin-left: 4px;
+                    width:267px;
+                    height:36px;
+                    box-shadow: rgba(229,229,229,1) 0 0 0 1px inset;
+                    border-radius:6px;
+                    .SelectInput{
+                        width: calc(100% - 47px);
+                        height: 100%;
+                        background: transparent;
+                        outline: none;
+                        text-indent: 12px;
+                    }
+                    .selecticon{
+                        width: 23px;
+                        margin: 0 12px;
+                    }
+                }
+            }
+        }
+        .TableBox{
+            margin: 31px 0;
+            width: 1136px;
+
+            .TableHead{
+                width: 100%;
+                height: 54px;
+                background: #F2F2F2;
+                text-indent: 22px;
+                font-size:18px;
+                font-weight: bold;
+                color: rgba($color: #000000, $alpha: 0.8);
+            }
+
+            .TableBody{
+                width: 100%;
+                text-indent: 22px;
+            }
+            .TableRow{
+                width: 100%;
+                height: 57px;
+                font-size:18px;
+                box-shadow: rgba($color: #B5B5B5, $alpha: 0.5) 0 -1px 0px inset;
+            }
+            .TableColumn{
+                height: 100%;
+            }
+            .ValueInput{
+                display: block;
+                // width: 253px;
+                flex-grow: 1;
+                height: 100%;
+                outline: none;
+                margin-left: 22px;
+                font-size: 18px;
+                color: rgba($color: #000000, $alpha: 0.7);
+                background: transparent;
+                font-weight: 300;
+            }
+            .Timespan{
+                font-size: 18px;
+                color: rgba($color: #000000, $alpha: 0.7);
+                font-weight: 300;
+            }
+            .HandleButtonGroup{
+                height: 100%;
+                flex-shrink: 0;
+                font-size:12px;
+                text-indent: 0px;
+                text-decoration:underline !important;
+                color: rgba($color: #000000, $alpha: 0.4);
+                div{
+                    margin: 22px;
+                    font-size: 12px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

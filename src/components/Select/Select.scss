@@ -1,0 +1,23 @@
+.SelectBox{
+    position: relative;
+    outline: none;
+    &:focus{
+        .DropBox{
+            display: block;
+        }
+    }
+    .ValueBox{
+        position: relative;
+        z-index: 1;
+    }
+    .DropBox{
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        transform: translateY(100%);
+        width: 100%;
+        min-height: 80px;
+        z-index: 0;
+        display: none;
+    }
+}

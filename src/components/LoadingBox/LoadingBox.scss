@@ -1,0 +1,71 @@
+.LoadingBox{
+    width: 100px;
+    height: 100px;
+
+    // background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    div{
+        flex-grow: 1;
+        width: 10px;
+        height: 10px;
+        background-color: rgba($color: #fff, $alpha: 0);
+        position: absolute;
+        border-radius: 100%;
+        // box-shadow: #fff 0 0 10px;
+
+        transform: rotate(calc(var(--n) * 30deg)) translateX(30px);
+        animation: loadingitem 0.6s calc(var(--n) * 0.1s) infinite linear;
+    }
+    & div:nth-child(1) {
+        --n: 1;
+    }
+    & div:nth-child(2) {
+        --n: 2;
+    }
+    & div:nth-child(3) {
+        --n: 3;
+    }
+    & div:nth-child(4) {
+        --n: 4;
+    }
+    & div:nth-child(5) {
+        --n: 5;
+    }
+    & div:nth-child(6) {
+        --n: 6;
+    }
+    & div:nth-child(7) {
+        --n: 7;
+    }
+    & div:nth-child(8) {
+        --n: 8;
+    }
+    & div:nth-child(9) {
+        --n: 9;
+    }
+    & div:nth-child(10) {
+        --n: 10;
+    }
+    & div:nth-child(11) {
+        --n: 11;
+    }
+    & div:nth-child(12) {
+        --n: 12;
+    }
+@keyframes loadingitem {
+    0%,80%{
+        // transform: rotate(calc(var(--n) * 30deg)) translateX(35px);
+        background: rgba($color: #fff, $alpha: 0);
+    }
+    40%{
+        // transform: rotate(calc(var(--n) * 30deg)) translateX(25px);
+        background: rgba($color: #bb7a3c, $alpha: 1);
+    }
+}
+}

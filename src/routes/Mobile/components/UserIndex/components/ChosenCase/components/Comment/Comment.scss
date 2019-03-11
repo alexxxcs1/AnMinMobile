@@ -1,0 +1,49 @@
+.CommentBox {
+    width: 595px;
+    height: 945px;
+    max-width: 90%;
+    max-height: 80%;
+    box-shadow: rgba(217, 146, 70, 1) 0 0 0 1px inset;
+    border-radius: 20px;
+    position: relative;
+    .CommentTopImg{
+        width: 219px;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%)
+    }
+    .CommentBotImg{
+        width: 105%;
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%) translateY(50%)
+    }
+
+    .CloseButton {
+        width: 47px;
+        height: 47px;
+        position: absolute;
+        top: -80px;
+        right: 0px;
+        cursor: pointer;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .DetialBox {
+        width: 488px;
+        height: 90%;
+        overflow: auto;
+        font-size: 28px;
+        font-weight: 400;
+        color: #fff;
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+}

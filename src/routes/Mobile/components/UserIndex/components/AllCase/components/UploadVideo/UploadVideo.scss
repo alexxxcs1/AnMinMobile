@@ -1,0 +1,49 @@
+.Button {
+    width: 151px;
+    height: 151px;
+    margin: calc(52px / 2);
+    // background: #333;
+    
+    border-radius: 50%;
+    box-shadow: 0px 3px 20px rgba(246, 121, 53, 0.24);
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    pointer-events: all;
+    overflow: hidden;
+    animation: scaleIn 0.3s;
+    position: relative;
+    .loadbar{
+        width: 100%;
+        height: 100%;
+        background: #f67935;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        z-index: -1;
+        border-radius: 100%;
+        transition: height 0.2s;
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        width: 98%;
+        height: 98%;
+        border-radius: 100%;
+        background: #333;
+        z-index: -2;
+    }
+}
+.hidden{
+    display: none;
+}
+@keyframes scaleIn{
+    0%{
+        opacity: 0;
+        transform: translateX(-200%) scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0%) scale(1);
+    }
+}

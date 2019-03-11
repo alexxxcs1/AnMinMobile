@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+/**
+ * 清除ul ol的样式 
+ */
+
+ ul,
+ ol,
+ ul li,
+ ol li {
+     list-style: none !important;
+ }
+ 
+ 
+ /* 初始化 */
+ 
+ body,
+ div,
+ ul,
+ li,
+ ol,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ input,
+ textarea,
+ select,
+ p,
+ dl,
+ dt,
+ dd,
+ a,
+ img,
+ button,
+ form,
+ table,
+ th,
+ tr,
+ td,
+ tbody,
+ article,
+ aside,
+ details,
+ figcaption,
+ figure,
+ footer,
+ header,
+ hgroup,
+ menu,
+ nav,
+ section {
+     margin: 0;
+     padding: 0;
+     border: none;
+ }
+ 
+ 
+ /**
+  * 设置行高 
+  */
+ 
+ div,
+ p,
+ a {
+     color: unset;
+     text-decoration:none !important; 
+ }
+ a:active{
+    //  color: #fff;
+ }
+ 
+ /* body 样式*/
+ html,body {
+     width: 100%;
+     height: 100%;
+    //  position: fixed;
+     top: 0px;
+     left: 0px;
+     font-family: "微软雅黑","Microsoft YaHei";
+    //  background: #f1f1f1;
+     margin: 0 auto;
+    //  background: #fff;
+    //  color: #333333 !important;
+     height: 100%;
+    //  overflow: hidden;
+     -webkit-tap-highlight-color: transparent;
+     &.modal-open {
+         position: fixed;
+         width: 100%;
+     }
+ }
+
+ /*css-modules通用样式*/
+ :global(.childcenter) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:global(.childcolumn) {
+  flex-direction: column
+}
+:global(.childrow) {
+  flex-direction: column
+}
+:global(.childcontentstart) {
+  justify-content: flex-start;
+}
+:global(.childcontentend) {
+  justify-content: flex-end;
+}
+:global(.childalignstart) {
+  align-items: flex-start;
+}
+:global(.childalignend) {
+  align-items: flex-end;
+}
+:global(.flexbox) {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+}

@@ -1,0 +1,63 @@
+.TopBannerBox {
+    width: 100%;
+    height: 120px;
+    background: #F67935;
+
+    .BannerDetial {
+        width: 100%;
+        max-width: 1366px;
+        height: 100%;
+        .HandleBox{
+            width: 30%;
+            height: 100%;
+        }
+        .GroupBox {
+            width: 70%;
+            height: 100%;
+        }
+        .Logo{
+            margin-right: 20px;
+            img{
+                width: 80px;
+            }
+        }
+        .TextSlogan {
+            font-size: 24px;
+            color: #fff;
+            margin: 0 83px;
+            width: calc(100% - 100px);
+            .TextGroup{
+                
+                width: 100%;
+            }
+        }
+        .UserInfo {
+            // width: 100%;
+            .UserHeadShot {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                }
+                margin: 0 12px;
+            }
+
+            .UserName {
+                font-size: 20px;
+                color: #fff;
+            }
+
+            .ExitButton {
+                font-size: 16px;
+                color: #fff;
+                margin-right: 83px;
+                margin-left: 30px;
+                cursor: pointer;
+                text-decoration: underline !important;
+            }
+        }
+    }
+}

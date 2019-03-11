@@ -1,0 +1,35 @@
+.MobileTipAlert{
+    width:382px;
+    height:315px;
+    background:rgba(0,0,0,0.8);
+    box-shadow:0px 0px 20px rgba(0,0,0,0.3);
+    border-radius:10px;
+    position: relative;
+    .CloseButton{
+        position: absolute;
+        top: 24px;
+        right: 27px;
+        width:26px;
+        height: 26px;
+        &::after{
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 36px;
+            background: #fff;
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        }
+        &::before{
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 36px;
+            background: #fff;
+            transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+        }
+    }
+}
