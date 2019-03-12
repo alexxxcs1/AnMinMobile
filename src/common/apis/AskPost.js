@@ -90,9 +90,9 @@ const AskPost = (ajaxinstance) => {
     }
     
     // 移动端注册帐号
-    customer.userRegister = (name,province,city,district,tel,code) => {
+    customer.userRegister = (name,province,city,district,tel,code,office,title,age,hospital) => {
       return ajaxinstance.post('users/UsersRegister',qs.stringify({
-        name,province,city,district,tel,code
+        name,province,city,district,tel,code,office,title,age,hospital
       }));
     }
     //移动端判断用户是否已授权

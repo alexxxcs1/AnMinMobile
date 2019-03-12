@@ -116,13 +116,15 @@ export class CitySelect extends Component {
             Province: this.state.ProvinceArray[this.state.Province], City: this.state.CityArray[this.state.City], Region: this.state.RegionArray[this.state.Region]
         }
         this.state.HandleSubmit(this.state.ProvinceArray[this.state.Province], this.state.CityArray[this.state.City], this.state.RegionArray[this.state.Region]);
+        this.setState(this.state);
         this.handleDropBox(false);
     }
     render() {
         return (
             <div className={style.SelectBox} tabIndex='0'>
-                <div className={[style.SelectedValue, 'childcenter', 'childcontentstart'].join(' ')} onClick={this.handleDropBox.bind(this, true)}>
-                    {this.state.Data.Province ? this.state.ProvinceArray[this.state.Province] : ''} {this.state.Data.Province ? this.state.CityArray[this.state.City] : ''} {this.state.Data.Province ? this.state.RegionArray[this.state.Region] : ''}
+                <div className={[style.SelectedValue,(this.state.Data.Province&&this.state.Data.City&&this.state.Data.Region)?'':style.Placeholder, 'childcenter', 'childcontentstart'].join(' ')} onClick={this.handleDropBox.bind(this, true)}>
+                    {/* {this.state.Data.Province ? this.state.ProvinceArray[this.state.Province] : ''} {this.state.Data.Province ? this.state.CityArray[this.state.City] : ''} {this.state.Data.Province ? this.state.RegionArray[this.state.Region] : ''} */}
+                    {(this.state.Data.Province&&this.state.Data.City&&this.state.Data.Region)?(this.state.ProvinceArray[this.state.Province] + this.state.CityArray[this.state.City] + this.state.RegionArray[this.state.Region]):'请选择您所在的省市'}
                 </div>
                 {this.state.Drop ? <DarkBox >
                     <div className={style.DropBox}>
@@ -130,12 +132,12 @@ export class CitySelect extends Component {
                             <div className={[style.ButtonBox, 'childcenter', 'childcontentstart'].join(' ')}>
                                 <div className={[style.Button, 'childcenter'].join(' ')} onClick={this.handleDropBox.bind(this, false)}>
                                     取消
-                        </div>
+                                </div>
                             </div>
                             <div className={[style.ButtonBox, 'childcenter', 'childcontentend'].join(' ')}>
                                 <div onClick={this.handleSubmit} className={[style.Button, 'childcenter'].join(' ')}>
                                     确定
-                        </div>
+                                </div>
                             </div>
                         </div>
                         <div className={[style.ListBox, 'childcenter childcolumn childcontentstart'].join(' ')}>

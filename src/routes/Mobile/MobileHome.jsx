@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import style from './MobileHome.scss'
 import { HashRouter,Route,Switch,Redirect} from 'react-router-dom';
 import AuthBox from './components/AuthBox'
-import Register from './components/Register'
-import UserIndex from './components/UserIndex'
-import RaterIndex from './components/RaterIndex'
+import Register from './View/Register'
+import UserIndex from './View/UserIndex'
+import RaterIndex from './View/RaterIndex'
 import shareicon from 'assets/shareicon.png'
 
 import {api} from 'common/app'
@@ -101,9 +101,9 @@ setShare() {
 render() {
   return (
     <div className={style.MobileHomeBox}>
-        <AuthBox />
+        {/* <AuthBox /> */}
         <Switch>
-            <Route path='/mobile/register' component={Register} />
+            <Route path='/mobile/userregister' component={Register} />
             <Route path='/mobile/user' component={UserIndex} />
             <Route path='/mobile/rateruser' component={RaterIndex} />
             <Redirect from="/" to="/mobile/user/all" />
