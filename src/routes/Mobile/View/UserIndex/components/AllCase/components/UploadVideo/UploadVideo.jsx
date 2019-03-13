@@ -5,6 +5,8 @@ import MobileTipAlert from 'components/MobileTipAlert'
 
 import PropTypes from "prop-types";
 
+import Error from "assets/Error.png";
+
 let uploadBarInter;
 export class UploadVideo extends Component {
   constructor(props) {
@@ -29,6 +31,7 @@ export class UploadVideo extends Component {
   refreshProps(props) {}
   fileClick(){
       this.refs.file.click();
+      this.HandleTipAlert(true);
   }
   fileChange(e){
     // if (!e.target.files[0]) return;
@@ -37,7 +40,7 @@ export class UploadVideo extends Component {
     e.target.value = '';
     formdata.append('file',file);
     api.uploadVideo(formdata).then(res=>{
-        if (res.code == 200) {
+        if (res.code === 200) {
           this.context.refreshList();
         }else{
             alert(res.msg);
@@ -72,9 +75,35 @@ export class UploadVideo extends Component {
           self.setState(this.state);
     }, 200);
   }
+  HandleTipAlert(boolean){
+    this.state.TipsAlertShow = boolean;
+    console.log(';;',boolean,this.state.TipsAlertShow);
+    this.setState(this.state);
+  }
   render() {
     return (
-      <div
+      [this.state.TipsAlertShow?
+        <div className={[style.FixedBox,'childcenter'].join(' ')}>
+          <MobileTipAlert onClose={this.HandleTipAlert.bind(this, false)}>
+            <div
+              className={[
+                style.AlertInfoBox,
+                "childcenter",
+                "childcolumn"
+              ].join(" ")}>
+              <img src={Error} className={style.Status} alt="" />
+              <div
+                className={[
+                  style.TextLayer,
+                  "childcenter",
+                  "childcolumn"
+                ].join(" ")}>
+                <span>支持拓展名: .MP4/.WMA/.MOV均可</span>
+                <span>限时30秒</span>
+              </div>
+            </div>
+          </MobileTipAlert>
+        </div>:'',<div
         onClick={this.fileClick}
         className={[
           style.Button,
@@ -83,9 +112,9 @@ export class UploadVideo extends Component {
         ].join(" ")}>
         <span>上传</span>
         <span>视频</span>
-        <div className={style.loadbar} style={{height:(this.state.loaded==0?100:this.state.loaded)+'%'}}></div>
+        <div className={style.loadbar} style={{height:(this.state.loaded===0?100:this.state.loaded)+'%'}}></div>
         <input type="file" onChange={this.fileChange} accept='video/*' ref='file' className={style.hidden}/>
-      </div>
+      </div>]
     );
   }
 }

@@ -1,9 +1,61 @@
+.FixedBox {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 0px;
+    left: 0px;
+    pointer-events: all;
+    .AlertInfoBox {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Status {
+        width: 125px;
+    }
+
+    .TextLayer {
+        margin-top: 22px;
+
+        .CheckCodeButtonGroup {
+            width: 100%;
+            height: 45px;
+
+            .Button {
+                width: 135px;
+                height: 100%;
+                background: #F67935;
+                border-radius: 5px;
+                margin: 15px;
+                color: #fff;
+                font-size: 20px;
+            }
+        }
+
+        span {
+            display: block;
+            color: #fff;
+
+            &:nth-child(1) {
+                font-size: 26px;
+                margin-bottom: 18px;
+            }
+
+            &:nth-child(2) {
+                font-size: 21px;
+            }
+        }
+    }
+
+}
+
 .Button {
     width: 151px;
     height: 151px;
     margin: calc(52px / 2);
     // background: #333;
-    
+
     border-radius: 50%;
     box-shadow: 0px 3px 20px rgba(246, 121, 53, 0.24);
     font-size: 24px;
@@ -13,7 +65,8 @@
     overflow: hidden;
     animation: scaleIn 0.3s;
     position: relative;
-    .loadbar{
+
+    .loadbar {
         width: 100%;
         height: 100%;
         background: #f67935;
@@ -24,7 +77,8 @@
         border-radius: 100%;
         transition: height 0.2s;
     }
-    &::after{
+
+    &::after {
         content: '';
         position: absolute;
         width: 98%;
@@ -34,15 +88,18 @@
         z-index: -2;
     }
 }
-.hidden{
+
+.hidden {
     display: none;
 }
-@keyframes scaleIn{
-    0%{
+
+@keyframes scaleIn {
+    0% {
         opacity: 0;
         transform: translateX(-200%) scale(0);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateX(0%) scale(1);
     }

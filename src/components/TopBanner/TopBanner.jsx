@@ -28,7 +28,7 @@ getUserInfo(){
     switch (window.location.hash.split('/')[2]) {
       case 'user':
         api.getUserInfo().then(res=>{
-          if (res.code == 200) {
+          if (res.code === 200) {
             this.state.userinfo = res.data;
           }else{
             console.log(res.msg);
@@ -40,7 +40,7 @@ getUserInfo(){
         break;
       case 'rateruser':
         api.getRaterInfo().then(res=>{
-          if (res.code == 200) {
+          if (res.code === 200) {
             this.state.userinfo = res.data;
           }else{
             console.log(res.msg);
@@ -57,7 +57,7 @@ getUserInfo(){
   }
 jumpUrl(){
   api.logout().then(res=>{
-    if (res.code == 200) {
+    if (res.code === 200) {
       switch (window.location.hash.split('/')[2]) {
         case 'user':
           window.location.hash = '#/ulogin';

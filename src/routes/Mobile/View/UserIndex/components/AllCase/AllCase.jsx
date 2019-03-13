@@ -59,7 +59,7 @@ refreshProps(props) {
 getCaseList(){
     api.getAllCase().then(res=>{
         console.log(res);
-        if (res.code == 200) {
+        if (res.code === 200) {
             this.state.data = res.data;
             this.state.casecount = res.count.resourceCount;
             this.state.vedioCount = res.count.vedioCount;
@@ -136,7 +136,7 @@ onReupload(e){
         formdata.append('id',reuploadid);   
         api.reuploadCase(formdata).then(res=>{
             // console.log(res);
-            if (res.code == 200) {
+            if (res.code === 200) {
                 this.state.data[reuploadindex].filePath = res.data;
             }
             this.setState(this.state);
@@ -152,7 +152,7 @@ onReupload(e){
 onDeleteCase(id,index){
     api.deleteCase(id).then(res=>{
         console.log(res);
-        if (res.code == 200) {
+        if (res.code === 200) {
             this.state.data.splice(index,1);
         }else{
             alert(res.msg)
@@ -207,7 +207,7 @@ render() {
   return (
     <div className={style.ListBox} ref={'scrollbody'}>
         <div className={[style.ListBody,'childcenter','childcolumn'].join(' ')}>
-            {this.state.data.length == 0?'这里什么都没有，快去投稿吧！':this.createList()}
+            {this.state.data.length === 0?'这里什么都没有，快去投稿吧！':this.createList()}
         </div>
         
         <div className={[style.HandleGroupBox,'childcenter'].join(' ')}>

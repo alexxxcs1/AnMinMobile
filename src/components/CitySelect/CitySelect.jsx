@@ -58,7 +58,7 @@ export class CitySelect extends Component {
     createProvince() {
         let result = [];
         for (let z = 0; z < this.state.ProvinceArray.length; z++) {
-            result.push(<div key={'Province'+z} onClick={this.SelectButton.bind(this, 'Province', z)} className={[style.SelectButton, this.state.Province == z ? style.Selected : '', 'childcenter'].join(' ')}>{this.state.ProvinceArray[z]}</div>)
+            result.push(<div key={'Province'+z} onClick={this.SelectButton.bind(this, 'Province', z)} className={[style.SelectButton, this.state.Province === z ? style.Selected : '', 'childcenter'].join(' ')}>{this.state.ProvinceArray[z]}</div>)
         }
         return result;
     }
@@ -74,7 +74,7 @@ export class CitySelect extends Component {
     createCity() {
         let result = [];
         for (let z = 0; z < this.state.CityArray.length; z++) {
-            result.push(<div key={'City'+z} onClick={this.SelectButton.bind(this, 'City', z)} className={[style.SelectButton, this.state.City == z ? style.Selected : '', 'childcenter'].join(' ')}>{this.state.CityArray[z]}</div>)
+            result.push(<div key={'City'+z} onClick={this.SelectButton.bind(this, 'City', z)} className={[style.SelectButton, this.state.City === z ? style.Selected : '', 'childcenter'].join(' ')}>{this.state.CityArray[z]}</div>)
         }
         return result;
     }
@@ -87,7 +87,7 @@ export class CitySelect extends Component {
     createRegion() {
         let result = [];
         for (let z = 0; z < this.state.RegionArray.length; z++) {
-            result.push(<div key={'Region'+z} onClick={this.SelectButton.bind(this, 'Region', z)} className={[style.SelectButton, this.state.Region == z ? style.Selected : '', 'childcenter'].join(' ')}>{this.state.RegionArray[z]}</div>)
+            result.push(<div key={'Region'+z} onClick={this.SelectButton.bind(this, 'Region', z)} className={[style.SelectButton, this.state.Region === z ? style.Selected : '', 'childcenter'].join(' ')}>{this.state.RegionArray[z]}</div>)
         }
         return result;
     }

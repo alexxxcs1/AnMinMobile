@@ -50,7 +50,7 @@ export class ChosenCase extends Component {
   getCaseList(){
     api.getChosenCase().then(res=>{
         console.log(res);
-        if (res.code == 200) {
+        if (res.code === 200) {
             this.state.data = res.data?res.data:[];
         }else{
             alert(res.msg)
@@ -196,7 +196,7 @@ export class ChosenCase extends Component {
         {this.state.contentBoxOption.show?<Comment content={this.state.contentBoxOption.content}/>:''}
         <div
           className={[style.ListBody, "childcenter", "childcolumn"].join(" ")}>
-          {this.state.data.length == 0
+          {this.state.data.length === 0
             ? "这里什么都没有，快去投稿吧！"
             : this.createList()}
         </div>

@@ -30,7 +30,7 @@ createOptionButton(){
   for (const key in this.state.option) {
       if (this.state.option.hasOwnProperty(key)) {
           result.push(
-            <div onClick={this.handleSelect.bind(this,key)} className={[style.RowBox,this.state.selected == key?style.Selected:'','childcenter'].join(' ')}>{this.state.option[key]}</div>
+            <div onClick={this.handleSelect.bind(this,key)} className={[style.RowBox,this.state.selected === key?style.Selected:'','childcenter'].join(' ')}>{this.state.option[key]}</div>
           )
       }
   }

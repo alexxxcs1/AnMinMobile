@@ -68,6 +68,12 @@ const AskPost = (ajaxinstance) => {
         id,score,info
       }));
     }
+    customer.setCaseScoreContentMobile = (id,score,info) => {
+      return ajaxinstance.post('index/ScoringResourceMobile',qs.stringify({
+        id,score,info
+      }));
+    }
+    
 
     //专家端登录
     customer.raterLogin = (username,password) => {

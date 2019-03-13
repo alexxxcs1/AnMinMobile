@@ -1,22 +1,85 @@
 .ListBox {
     width: 100%;
     height: 100%;
-    background: rgba(229, 229, 229, 0.41);
+    background: linear-gradient( -25deg,#f3da99,#fff8ef);
     overflow: auto;
     position: relative;
     -webkit-overflow-scrolling: touch;
-
+    .BGtop{
+        width: 289px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 0;
+        img{
+            width: 100%;
+        }
+    }
+    .BGbot{
+        width: 289px;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        transform: rotate(180deg);
+        
+        z-index: 0;
+        img{
+            width: 100%;
+        }
+    }
+    .SearchBox{
+        position: relative;
+        margin-bottom: 36px;
+        z-index: 2;
+    }
     .ListBody {
         width: 100%;
         margin-top: 34px;
-
+        position: relative;
+        z-index: 1;
+        .PageTitle{
+            position: relative;
+            font-size: 38px;
+            color: #ea5e00;
+            margin-bottom: 45px;
+            &::after{
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0px;
+                transform: translateX(calc(-100% - 10px)) translateY(-50%);
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #f67935;
+                box-shadow: #fff 0 0 0 1px inset;
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 0px;
+                transform: translateX(calc(100% + 10px)) translateY(-50%);
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #f67935;
+                box-shadow: #fff 0 0 0 1px inset;
+            }
+        }
+        .ListDetialBox{
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
         .CaseCard {
-            width: 680px;
+            width: 647px;
             height: 236px;
-            background: #fff;
+            background: linear-gradient( -25deg,#f3da99,#fff8ef);
+            box-shadow: rgba($color: #5c5951, $alpha: 0.3) 0 0 15px;
             margin-bottom: 30px;
             border-radius: 23px;
-
+            position: relative;
             .CaseTitle {
                 flex-shrink: 0;
                 font-size: 30px;
@@ -24,8 +87,24 @@
                 color: black;
                 margin: 7px 39px;
                 margin-top: 35px;
+                margin-bottom: 0px;
             }
-
+            .CaseInfo{
+                width: calc(100% - 78px);
+                margin: 30px auto;
+                span{
+                    font-size: 22px;
+                    color: #353030;
+                    display: block;
+                    margin: 0 18px;
+                }
+                span:first-child{
+                    margin-left: 0px;
+                }
+                span:nth-child(3),span:nth-child(4){
+                    text-decoration: underline;
+                }
+            }
             .CaseUpdateTime {
                 flex-shrink: 0;
                 font-size: 21px;
@@ -36,31 +115,39 @@
 
             .ButtonGroup {
                 flex-shrink: 0;
-                width: 619px;
+                width: calc(100% - 78px);
                 margin: 0 auto;
                 margin-bottom: 24px;
 
                 .HandleButton {
                     width: 151px;
-                    height: 47px;
-                    box-shadow: rgba(0, 0, 0, 0.2) 0 0 0 1px inset;
+                    height: 36px;
+                    box-shadow: rgba($color: #78746f, $alpha: 1.0) 0 0 0 1px inset;
                     border-radius: 24px;
                     font-size: 24px;
                     font-weight: 300;
-                    color: rgba(0, 0, 0, 0.6);
-
-                    &:nth-child(1) {
-                        margin-right: 177px;
-                    }
-
-                    &:nth-child(2) {
-                        margin-right: 27px;
-                    }
+                    color: #78746f;
+                    margin: 0 10px;
+                }
+                .HandleButton:nth-child(1){
+                    box-shadow: rgba($color: #ea5e00, $alpha: 1.0) 0 0 0 1px inset;
+                    color: #ea5e00;
+                    margin-left: 0px;
                 }
 
                 .Colorful {
                     box-shadow: rgba(246, 121, 53, 0.2) 0 0 0 1px inset;
                     color: #f67935;
+                }
+            }
+            .CaseStatus{
+                width: 87px;
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                img{
+                    width: 100%;
+                    display: block;
                 }
             }
         }

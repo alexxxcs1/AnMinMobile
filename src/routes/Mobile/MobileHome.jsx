@@ -5,6 +5,7 @@ import AuthBox from './components/AuthBox'
 import Register from './View/Register'
 import UserIndex from './View/UserIndex'
 import RaterIndex from './View/RaterIndex'
+import RaterLogin from './View/RaterLogin'
 import shareicon from 'assets/shareicon.png'
 
 import {api} from 'common/app'
@@ -105,6 +106,8 @@ render() {
         <Switch>
             <Route path='/mobile/userregister' component={Register} />
             <Route path='/mobile/user' component={UserIndex} />
+
+            <Route path='/mobile/raterlogin' component={RaterLogin} />
             <Route path='/mobile/rateruser' component={RaterIndex} />
             <Redirect from="/" to="/mobile/user/all" />
         </Switch>

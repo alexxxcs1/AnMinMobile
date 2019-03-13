@@ -21,12 +21,12 @@ refreshProps(props) {
 }
 getAuth(){
     api.wxisAuth(window.location.href).then(res=>{
-        if (res.code == 203) {
+        if (res.code === 203) {
             window.location.href = res.data;     
-        }else if(res.code == 201){
-            window.location.hash = '#/mobile/register';         
-        }else{
-            
+        }else if(res.code === 201){
+            window.location.hash = '#/mobile/userregister';         
+        }else if(res.code === 202){
+            window.location.hash = '#/mobile/user';
         }
     },err=>{
 

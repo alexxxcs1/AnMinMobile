@@ -4,6 +4,8 @@ import style from './UserIndex.scss'
 import AllCase from './components/AllCase'
 import ChosenCase from './components/ChosenCase'
 import Rule from './components/Rule'
+import Register from '../Register'
+import AuthBox from '../../components/AuthBox'
   
 export class UserIndex extends Component {
 constructor(props) {
@@ -31,14 +33,15 @@ HandleNav(status){
 render() {
   return (
     <div className={style.UserIndexBox}>
+        <AuthBox />
         <div className={[style.TopNavBox,'childcenter'].join(' ')}>
-            <div className={[style.NavButton,'childcenter',this.state.navStatus=='all'?style.MatchNav:''].join(' ')} onClick={this.HandleNav.bind(this,'all')}>
+            <div className={[style.NavButton,'childcenter',this.state.navStatus==='all'?style.MatchNav:''].join(' ')} onClick={this.HandleNav.bind(this,'all')}>
                 所有案例
             </div>
-            <div className={[style.NavButton,'childcenter',this.state.navStatus=='chosen'?style.MatchNav:''].join(' ')} onClick={this.HandleNav.bind(this,'chosen')}>
+            <div className={[style.NavButton,'childcenter',this.state.navStatus==='chosen'?style.MatchNav:''].join(' ')} onClick={this.HandleNav.bind(this,'chosen')}>
                 入选案例
             </div>
-            <div className={[style.NavButton,'childcenter',this.state.navStatus=='rule'?style.MatchNav:''].join(' ')} onClick={this.HandleNav.bind(this,'rule')}>
+            <div className={[style.NavButton,'childcenter',this.state.navStatus==='rule'?style.MatchNav:''].join(' ')} onClick={this.HandleNav.bind(this,'rule')}>
                 活动规则
             </div>
         </div>

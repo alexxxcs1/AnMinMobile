@@ -3,6 +3,7 @@ import style from "./Register.scss";
 import MobileTipAlert from "components/MobileTipAlert";
 import CitySelect from "components/CitySelect";
 import MobileSelect from "components/MobileSelect";
+import AuthBox from '../../components/AuthBox'
 
 import logo from "assets/logo.png";
 import Success from "assets/Success.png";
@@ -78,7 +79,7 @@ export class Register extends Component {
     }, 500);
   }
   onInputChange(type, e) {
-    if (e.target.value.length > 11 && type == "tel") {
+    if (e.target.value.length > 11 && type === "tel") {
       e.target.value = e.target.value.slice(0, 11);
     }
     this.state.formdata[type] = e.target.value;
@@ -130,7 +131,7 @@ export class Register extends Component {
         values = "邀请码";
         break;
     }
-    if (values == "") {
+    if (values === "") {
       api
         .userRegister(
           this.state.formdata.name,
@@ -147,7 +148,7 @@ export class Register extends Component {
         .then(
           res => {
             console.log(res);
-            if (res.code == 200) {
+            if (res.code === 200) {
               this.state.RegisterResult = {
                 alertshow: true,
                 result: true,
@@ -230,9 +231,10 @@ export class Register extends Component {
   render() {
     return (
       <div className={[style.ContentBox,'childcenter childcolumn childcontentstart'].join(" ")}>
+        <AuthBox />
         {this.state.RegisterResult.alertshow ? (
           <div className={[style.FixLayer, "childcenter"].join(" ")}>
-            {this.state.RegisterResult.result == true ? (
+            {this.state.RegisterResult.result === true ? (
               <MobileTipAlert onClose={this.HandleAlertShow.bind(this, false)}>
                 <div
                   className={[
@@ -255,7 +257,7 @@ export class Register extends Component {
             ) : (
               ""
             )}
-            {this.state.RegisterResult.result == false ? (
+            {this.state.RegisterResult.result === false ? (
               <MobileTipAlert onClose={this.HandleAlertShow.bind(this, false)}>
                 <div
                   className={[
@@ -475,7 +477,7 @@ export class Register extends Component {
               />
             </div>
             <div className={[style.InputBox, "childcenter"].join(" ")} onClick={this.GetPublicCode}>
-              <div className={[style.PhoneCodeButton, "childcenter"].join(" ")}>{this.state.getCodeCutdown == 60?'丨点击获取临床儿科杂志社邀请码丨':'重新发送邀请码剩余'+this.state.getCodeCutdown+'秒'}</div>
+              <div className={[style.PhoneCodeButton, "childcenter"].join(" ")}>{this.state.getCodeCutdown === 60?'丨点击获取临床儿科杂志社邀请码丨':'重新发送邀请码剩余'+this.state.getCodeCutdown+'秒'}</div>
             </div>
             <div className={[style.InputBox, "childcenter"].join(" ")}>
               <div
