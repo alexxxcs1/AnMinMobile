@@ -4,6 +4,7 @@ import MobileTipAlert from "components/MobileTipAlert";
 import CitySelect from "components/CitySelect";
 import MobileSelect from "components/MobileSelect";
 import AuthBox from '../../components/AuthBox'
+import AdView from '../../components/AdView'
 
 import logo from "assets/logo.png";
 import Success from "assets/Success.png";
@@ -156,7 +157,7 @@ export class Register extends Component {
               };
               let self = this;
               jumpertimmer = setTimeout(() => {
-                self.props.history.push("/mobile/user/all");
+                self.props.history.push("/mobile/user");
               }, 1000);
             } else {
               this.state.RegisterResult = {
@@ -231,6 +232,7 @@ export class Register extends Component {
   render() {
     return (
       <div className={[style.ContentBox,'childcenter childcolumn childcontentstart'].join(" ")}>
+        <AdView />
         <AuthBox />
         {this.state.RegisterResult.alertshow ? (
           <div className={[style.FixLayer, "childcenter"].join(" ")}>

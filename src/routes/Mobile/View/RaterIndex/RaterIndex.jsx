@@ -3,7 +3,7 @@ import { HashRouter,Route,Switch,Redirect} from 'react-router-dom';
 import style from './RaterIndex.scss'
 import AllCase from './Views/AllCase'
 import ChosenCase from './Views/ChosenCase'
-import AuthBox from '../../components/AuthBox'
+import RaterAuthBox from '../../components/RaterAuthBox';
   
 export class RaterIndex extends Component {
 constructor(props) {
@@ -31,6 +31,7 @@ HandleNav(status){
 render() {
   return (
     <div className={style.RaterIndexBox}>
+        <RaterAuthBox />
         <div className={[style.TopNavBox,'childcenter'].join(' ')}>
             <div className={style.NavButtonOutBox}>
               <div className={[style.NavButton,'childcenter',this.state.navStatus==='all'?style.MatchNav:''].join(' ')} onClick={this.HandleNav.bind(this,'all')}>

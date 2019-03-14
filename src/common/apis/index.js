@@ -21,11 +21,11 @@ ajaxinstance
   .request
   .use((config) => {
     // TODO
-    console.log(config);
+    // console.log(config);
     
     return config
   }, (error) => {
-    Promise.reject(error)
+    // Promise.reject(error)
   })
 
 // 请求响应拦截器

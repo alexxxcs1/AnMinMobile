@@ -21,5 +21,83 @@
       width: 100%;
       height: calc(100% - 95px);
     }
+
+    .ProjectInfo{
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      background: rgba($color: #fff, $alpha: 0.8);
+      z-index: 88;
+
+      .InfoBox{
+        width: 628px;
+        height: 1016px;
+        background: linear-gradient(-27deg,#EECF86,#F8E8B5 45.3%,#FFFDE6 86.4%);
+        border-radius: 25px 25px 0 0;
+        position: relative;
+
+        .CloseButton{
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          position: absolute;
+          z-index: 9;
+          top: -30px;
+          right: -30px;
+          background-image: linear-gradient(118.6deg ,rgba(255,128,0,0.2) 0%,rgba(255,146,30,1) 54.63%,rgba(234,94,0,1) 100%);
+          &::after{
+            width: 4px;
+            height: 30px;
+            top: 50%;
+            left: 50%;
+            background: #fff;
+            position: absolute;
+            content: '';
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+          }
+          &::before{
+            width: 4px;
+            height: 30px;
+            top: 50%;
+            left: 50%;
+            background: #fff;
+            position: absolute;
+            content: '';
+            transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+          }
+        }
+        .Content{
+          width: 100%;
+          height: 100%;
+          position: relative;
+          z-index: 1;
+          .ContentTitle{
+            width: 535px;
+            img{
+              width: 100%;
+            }
+          }
+          .ContentText{
+            width: 530px;
+            margin: -30px;
+            font-size: 26px;
+            line-height: 45px;
+            margin-bottom: 80px;
+            color: #EA5E00;
+          }
+        }
+        .BottomImage{
+          width: 100%;
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          z-index: 0;
+          img{
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+    }
   }
   

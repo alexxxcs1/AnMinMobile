@@ -4,6 +4,7 @@ import raterloginlogo from 'assets/raterloginlogo.png'
 import mobilebottom from 'assets/mobilebottom.png'
 import raterlogintitle from 'assets/raterlogintitle.png'
 import {api} from 'common/app'
+import RaterAuthBox from '../../components/RaterAuthBox';
   
 export class RaterLogin extends Component {
 constructor(props) {
@@ -53,6 +54,7 @@ HandleInputChange(type,e){
 render() {
   return (
     <div className={style.RaterLoginBox}>
+        <RaterAuthBox />
         <div className={style.LogoBox}>
             <img src={raterloginlogo} alt=""/>
         </div>
