@@ -3,6 +3,8 @@
     height: 100%;
     .TopNavBox {
       width: 100%;
+      position: relative;
+      z-index: 0;
       box-shadow: #f67935 0 -1px 0 inset;
       .NavButtonOutBox{
         width: 50%;
@@ -23,6 +25,8 @@
     }
     .DetialBox {
       width: 100%;
+      position: relative;
+      z-index: 1;
       height: calc(100% - 95px);
     }
   }

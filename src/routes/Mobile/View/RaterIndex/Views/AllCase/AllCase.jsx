@@ -42,6 +42,7 @@ constructor(props) {
      this.getCaseList = this.getCaseList.bind(this);
      this.onSearchOptionChange = this.onSearchOptionChange.bind(this);
      this.onSearchValueChange = this.onSearchValueChange.bind(this);
+     this.onSearchValue = this.onSearchValue.bind(this);
 }
 getChildContext() {
     return {
@@ -67,7 +68,7 @@ refreshProps(props) {
     clearInterval(this.scrollTopInterval);
 }
 getCaseList(){
-    api.getAllCaseByRater(1,this.state.filterOption,this.state.searchValue,'all').then(res=>{
+    api.getAllCaseByRater(1,this.state.filterOption,this.state.filterOption===null?null:this.state.searchValue,'all').then(res=>{
         if (res.code === 200) {
             this.state.data = res.data.list;
             this.state.nowpage = res.data.page;
@@ -109,8 +110,9 @@ setScrollListener(e){
 }
 pushData(){
     if (this.state.nowpage+1>this.state.totalpage) return;
+    
     this.state.nowpage+=1;
-    api.getAllCaseByRater(this.state.nowpage,null,null,'all').then(res=>{
+    api.getAllCaseByRater(this.state.nowpage,this.state.filterOption,this.state.filterOption==null?null:this.state.searchValue,'all').then(res=>{
         let result = [];
         if (res.code === 200) {
             
@@ -242,6 +244,8 @@ onSearchOptionChange(option){
 onSearchValueChange(value){
     this.state.searchValue = value;
     this.setState(this.state);
+}
+onSearchValue(){
     this.getCaseList();
 }
 render() {
@@ -251,7 +255,8 @@ render() {
             <div className={style.SearchBox}>
                 <SearchBox 
                     onOptionChange={this.onSearchOptionChange}
-                    onSearchValueChange={this.onSearchValueChange}/>
+                    onSearchValueChange={this.onSearchValueChange}
+                    onSearch={this.onSearchValue}/>
             </div>
             <div className={style.PageTitle}>所有案例总览表</div>
             <div className={style.BGtop}>

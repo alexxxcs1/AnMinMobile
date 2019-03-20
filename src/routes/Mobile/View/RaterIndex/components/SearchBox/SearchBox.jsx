@@ -34,6 +34,7 @@ HandleSelect(option){
 }
 HandleSearchValue(e){
     this.state.searchValue = e.target.value;
+    this.props.onSearchValueChange(this.state.searchValue);
     this.setState(this.state);
 }
 startListenKey(){
@@ -41,7 +42,7 @@ startListenKey(){
 }
 onKeyDown(e){
     if (e.key === 'Enter') {
-        this.props.onSearchValueChange(this.state.searchValue);
+        this.props.onSearch();
     }
 }
 onInputBlur() {
@@ -66,7 +67,7 @@ render() {
         <div className={[style.SearchValueBox,'childcenter'].join(' ')}>
             <input type="text" value={this.state.searchValue} onBlur={this.onInputBlur} onChange={this.HandleSearchValue} className={style.Inputs}/>
             <div className={style.SelectIcon} onClick={(()=>{
-                this.props.onSearchValueChange(this.state.searchValue);
+                this.props.onSearch(this.state.searchValue);
             }).bind(this)}>
                 <img src={selecticon} alt=""/>
             </div>

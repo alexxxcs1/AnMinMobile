@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import style from './ChosenCase.scss'
-import Comment from './components/Comment'
 
 import scroeicon from 'assets/scroeicon.png'
 import rateruserbgicon from 'assets/rateruserbgicon.png'
-import ScoreAndComment from './components/ScoreAndComment'
+import Comment from './components/Comment'
+import Score from './components/Score'
 
 import SearchBox from '../../components/SearchBox'
 
@@ -36,6 +36,12 @@ constructor(props) {
         score:null,
         content:null,
       },
+      EditScoreOption:{
+        index:null,
+        show:false,
+        id:null,
+        score:null,
+      },
 
       filterOption:null,
       searchValue:null,
@@ -52,6 +58,8 @@ constructor(props) {
      this.HandleEditCommentBox = this.HandleEditCommentBox.bind(this);
      this.onSearchOptionChange = this.onSearchOptionChange.bind(this);
      this.onSearchValueChange = this.onSearchValueChange.bind(this);
+     this.HandleEditScoreBox = this.HandleEditScoreBox.bind(this);
+     this.onSearchValue = this.onSearchValue.bind(this);
 }
 getChildContext() {
     return {
@@ -79,7 +87,7 @@ refreshProps(props) {
     clearInterval(this.scrollTopInterval);
 }
 getCaseList(){
-    api.getAllCaseByRater(1,this.state.filterOption,this.state.searchValue,'pass').then(res=>{
+    api.getAllCaseByRater(1,null,null,'pass').then(res=>{
         if (res.code === 200) {
             this.state.data = res.data.list;
             this.state.nowpage = res.data.page;
@@ -164,6 +172,10 @@ HandleEditCommentBox(option){
     this.state.EditCommentOption = option;
     this.setState(this.state);
 }
+HandleEditScoreBox(option){
+    this.state.EditScoreOption = option;
+    this.setState(this.state);
+}
 createList(){
     let result = [];
     for (let z = 0; z < this.state.data.length; z++) {
@@ -171,12 +183,12 @@ createList(){
         <div className={[style.CaseCard,'childcenter','childcolumn','childalignstart'].join(' ')}>
             <div className={style.CaseTitle}> {this.state.data[z].name} </div>
             <div className={[style.CaseInfo,'childcenter childcontentstart'].join(' ')}>
-                <span> {this.state.data[z].userName}</span>
+                {/* <span> {this.state.data[z].userName}</span>
                 |
                 <span> {this.state.data[z].tel}</span>
-                |
+                | */}
                 <span><a href={this.state.data[z].filePath}>预览</a></span>
-                |
+                
                 <span><a href={this.state.data[z].video}>查看视频</a></span>
             </div>
             <div className={[style.ButtonGroup,'childcenter','childcontentstart'].join(' ')}>
@@ -188,14 +200,16 @@ createList(){
                         content:this.state.data[z].content,
                     })}
                  >
-                    打分及点评
+                    点此点评
                 </div>
                 <div className={[style.HandleButton,'childcenter'].join(' ')} 
-                    onClick={this.HandleCommentBox.bind(this,{
-                    show:true,
-                    content:this.state.data[z].content
+                    onClick={this.HandleEditScoreBox.bind(this,{
+                        index:z,
+                        show:true,
+                        id:this.state.data[z].id,
+                        score:this.state.data[z].may_score,
                     })}>
-                    查看点评
+                    点此打分
                 </div>
             </div> 
             <div className={[style.CaseStatus,'childcenter'].join(' ')} style={{backgroundImage:'url('+scroeicon+')'}}>
@@ -232,28 +246,43 @@ componentWillUnmount(){
     clearInterval(this.scrollTopInterval);
 }
 onSearchOptionChange(option){
-    this.state.filterOption = option;
-    this.setState(this.state);
-    this.getCaseList();
+    // this.state.filterOption = option;
+    // this.setState(this.state);
+    // this.getCaseList();
 }
 onSearchValueChange(value){
-    this.state.searchValue = value;
+    // this.state.searchValue = value;
+    // this.setState(this.state);
+    // this.getCaseList();
+}
+onSearchValue(){
+    // this.getCaseList();
+}
+UpdateScore(index,option,sum,){
+    this.state.EditScoreOption = option;
+    this.state.data[index].sum = sum;
     this.setState(this.state);
-    this.getCaseList();
 }
 render() {
   return (
     <div className={style.ListBox} ref={'scrollbody'}>
-        {this.state.EditCommentOption.show?<ScoreAndComment 
+        {this.state.EditCommentOption.show?<Comment 
             id={this.state.EditCommentOption.id} 
             content={this.state.EditCommentOption.content} 
             score={this.state.EditCommentOption.score}/>:''}
-        {this.state.contentBoxOption.show?<Comment content={this.state.contentBoxOption.content}/>:''}
+        {this.state.EditScoreOption.show?<Score 
+            id={this.state.EditScoreOption.id}
+            score={this.state.EditScoreOption.score}
+            onUpdate={this.UpdateScore.bind(this,this.state.EditScoreOption.index)}
+            />:''}
+        
+        {/* {this.state.contentBoxOption.show?<Comment content={this.state.contentBoxOption.content}/>:''} */}
         <div className={[style.ListBody,'childcenter','childcolumn'].join(' ')}>
             <div className={style.SearchBox}>
                 <SearchBox 
                     onOptionChange={this.onSearchOptionChange}
-                    onSearchValueChange={this.onSearchValueChange}/>
+                    onSearchValueChange={this.onSearchValueChange}
+                    onSearch={this.onSearchValue}/>
             </div>
             <div className={style.PageTitle}>入选案例总览表</div>
             <div className={style.BGtop}>

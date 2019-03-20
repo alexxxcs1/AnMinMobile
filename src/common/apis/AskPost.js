@@ -63,9 +63,9 @@ const AskPost = (ajaxinstance) => {
       }));
     }
     //打分点评
-    customer.setCaseScoreContent = (id,score,info) => {
+    customer.setCaseScoreContent = (id,score,info,may_score) => {
       return ajaxinstance.post('index/ScoringResource',qs.stringify({
-        id,score,info
+        id,score,info,may_score
       }));
     }
     customer.setCaseScoreContentMobile = (id,score,info) => {

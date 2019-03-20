@@ -22,7 +22,9 @@ refreshProps(props) {
 isLogin(){
   api.raterIsLogin().then(res=>{
     if (res.code === 200) {
-      window.location.hash = '#/mobile/rateruser';
+      if (window.location.hash=='#/mobile/raterlogin') {
+        window.location.hash = '#/mobile/rateruser';
+      }
     }else{
       window.location.hash = '#/mobile/raterlogin';
     }
