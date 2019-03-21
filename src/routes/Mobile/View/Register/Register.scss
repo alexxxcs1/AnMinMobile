@@ -59,7 +59,7 @@
     }
     .RegisterBox {
       margin: 0 auto ;
-      width: 660px;
+      width: 100%;
       min-height: 1041px;
       height: calc(100% - 139px);
       // height: calc(100% - 46px - 120px);
@@ -183,6 +183,14 @@
         font-weight: 500;
         color: white;
       }
+
+      .RegisterBottom{
+        width: 100%;
+        img{
+          width: 100%;
+          display: block;
+        }
+      }
     }
   }
   
@@ -222,4 +230,34 @@
         background-position-x: 0%;
         background-position-y: 0%;
     }
+}
+
+.BeforeregBox{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 5;
+  background: linear-gradient(118.3deg,#FFFDE6 13%,#F8E8B5 54%,#EECF86 100%);
+  .ProjectInfoBox{
+    width: 666px;
+    position: relative;
+    img{
+      width: 100%;
+      display: block;
+    }
+    .NextButton{
+      position: absolute;
+      bottom: 184px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 80px;
+      background: linear-gradient(-27deg,#F3C05E,#E66C00);
+      box-shadow: rgba($color: #CE5300, $alpha: 0.6) 0 0 16px;
+      border-radius: 40px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+    }
+  }
 }

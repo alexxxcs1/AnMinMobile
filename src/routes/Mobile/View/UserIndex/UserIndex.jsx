@@ -25,6 +25,11 @@ componentWillReceiveProps(nextprops) {
 }
 componentDidMount() {
   this.refreshProps(this.props);
+  let projectinfoshow = window.localStorage.getItem('projectInfoShow');
+  if (projectinfoshow) {
+    this.state.ProjectInfoShow = false;
+  }
+  this.setState(this.state);
 }
 refreshProps(props) {
     let hash = window.location.hash.split('/');
@@ -36,6 +41,9 @@ HandleNav(status){
 }
 ProjectInfoHandle(boolean){
   this.state.ProjectInfoShow = boolean;
+  if (!boolean) {
+    window.localStorage.setItem('projectInfoShow',new Date().getTime());
+  }
   this.setState(this.state);
 }
 render() {
