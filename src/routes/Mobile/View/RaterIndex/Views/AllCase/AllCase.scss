@@ -4,6 +4,7 @@
     background: linear-gradient( -25deg,#f3da99,#fff8ef);
     overflow: auto;
     position: relative;
+    -webkit-overflow-scrolling: touch;
     .BGtop{
         width: 289px;
         position: absolute;
@@ -80,7 +81,6 @@
             border-radius: 23px;
             position: relative;
             .CaseTitle {
-                max-width: 75%;
                 flex-shrink: 0;
                 font-size: 30px;
                 font-weight: 300;
@@ -143,7 +143,7 @@
             .CaseStatus{
                 width: 87px;
                 position: absolute;
-                top: 20px;
+                bottom: 20px;
                 right: 20px;
                 img{
                     width: 100%;

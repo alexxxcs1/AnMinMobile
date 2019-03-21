@@ -9,17 +9,18 @@ export class AdView extends Component {
 constructor(props) {
   super(props);
   this.state = {
-      lasttime:3,
+      lasttime:5,
       end:false,
       unshow:false,
   };
   this.refreshProps = this.refreshProps.bind(this);
-  this.HiddenAD = this.HiddenAD.bind(this);
 }
 componentWillReceiveProps(nextprops) {
   this.refreshProps(nextprops);
 }
 componentDidMount() {
+  
+  
   this.refreshProps(this.props);
   let lastAD = window.localStorage.getItem('lastAD');
   if (lastAD&&((new Date().getTime() - lastAD)<=60000*10)){
@@ -34,19 +35,16 @@ refreshProps(props) {
 onLoaded(){
     cutdowntime = setInterval(() => {
         if (this.state.lasttime<=0) {
-            this.HiddenAD()
             clearInterval(cutdowntime);
+            this.state.end = true;
+            this.state.unshow = true;
+            this.setState(this.state);
+            window.localStorage.setItem('lastAD',new Date().getTime());
         }else{
             this.state.lasttime -= 1;
             this.setState(this.state);
         }
     }, 1000);
-}
-HiddenAD(){
-    this.state.end = true;
-    this.state.unshow = true;
-    this.setState(this.state);
-    window.localStorage.setItem('lastAD',new Date().getTime());
 }
 render() {
   return (
@@ -57,8 +55,8 @@ render() {
                 <img src={raterloginlogo} alt=""/>
             </div>
             <div className={[style.ContentBox,'childcenter childcolumn'].join(' ')}>
-                <div className={[style.CutDownTime,'childcenter'].join(' ')} onClick={this.state.lasttime == 0?this.HiddenAD:''}>
-                    {this.state.lasttime == 0?'跳过':this.state.lasttime}
+                <div className={[style.CutDownTime,'childcenter'].join(' ')}>
+                    {this.state.lasttime}
                 </div>
                 <div className={style.TitleBox}>
                     <img src={adtitle} alt=""/>
