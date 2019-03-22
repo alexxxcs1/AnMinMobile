@@ -292,8 +292,8 @@ export class Register extends Component {
         ) : (
           ""
         )}
-        
-        {this.state.CheckCodeAlert.alertshow? <div className={[style.FixLayer, "childcenter"].join(" ")}>
+        {/* 邀请码二次确认弹出框*/}
+        {/* {this.state.CheckCodeAlert.alertshow? <div className={[style.FixLayer, "childcenter"].join(" ")}>
           <MobileTipAlert onClose={this.HandleCheckCodeAlert.bind(this, false)}>
             <div
               className={[
@@ -322,7 +322,7 @@ export class Register extends Component {
               </div>
             </div>
           </MobileTipAlert>
-        </div>:''}
+        </div>:''} */}
 
         <div className={style.TitleLogo}>
             <img src={mobileregisterlogo} alt=""/>
@@ -520,11 +520,19 @@ export class Register extends Component {
               我已经阅读并同意《用户知情同意书》
             </span>
           </div> */}
+
           <div
+            className={[style.RegButton, "childcenter"].join(" ")}
+            onClick={this.HandleSubmit}>
+            确定
+          </div>
+
+          {/* 弹出二次确定框 */}
+          {/* <div
             className={[style.RegButton, "childcenter"].join(" ")}
             onClick={this.HandleCheckCodeAlert}>
             确定
-          </div>
+          </div> */}
           <div className={style.RegisterBottom}>
             <img src={projectinfobot} alt=""/>
           </div>
