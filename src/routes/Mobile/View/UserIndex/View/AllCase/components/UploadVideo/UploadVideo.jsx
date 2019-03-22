@@ -12,6 +12,8 @@ export class UploadVideo extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        full:false,
+        video:null,
         VideoCount:0,
         Uploading:false,
         loaded:0,
@@ -28,10 +30,21 @@ export class UploadVideo extends Component {
   componentDidMount() {
     this.refreshProps(this.props);
   }
-  refreshProps(props) {}
+  refreshProps(props) {
+    console.log(props.full);
+    
+    this.state.full = props.full!==undefined?props.full:this.state.full;
+    this.state.video = props.video!==undefined?props.video:this.state.video;
+    this.setState(this.state);
+  }
   fileClick(){
-      this.refs.file.click();
-      this.HandleTipAlert(true);
+      if (this.state.full) {
+        window.location.href = this.state.video ;
+      }else{
+        this.refs.file.click();
+        this.HandleTipAlert(true);
+      }
+      
   }
   fileChange(e){
     // if (!e.target.files[0]) return;
@@ -77,7 +90,6 @@ export class UploadVideo extends Component {
   }
   HandleTipAlert(boolean){
     this.state.TipsAlertShow = boolean;
-    console.log(';;',boolean,this.state.TipsAlertShow);
     this.setState(this.state);
   }
   render() {
@@ -110,7 +122,7 @@ export class UploadVideo extends Component {
           "childcenter",
           "childcolumn"
         ].join(" ")}>
-        <span>上传</span>
+        <span>{this.state.full?'查看':'上传'}</span>
         <span>视频</span>
         <div className={style.loadbar} style={{height:(this.state.loaded===0?100:this.state.loaded)+'%'}}></div>
         <input type="file" onChange={this.fileChange} accept='video/*' ref='file' className={style.hidden}/>

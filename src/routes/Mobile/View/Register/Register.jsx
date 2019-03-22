@@ -9,6 +9,9 @@ import AdView from '../../components/AdView'
 import logo from "assets/logo.png";
 import Success from "assets/Success.png";
 import Error from "assets/Error.png";
+import projectinfobefore from "assets/projectinfobefore.png";
+import projectinfobot from "assets/projectinfobot.png";
+
 import mobileregisterlogo from "assets/mobileregisterlogo.png";
 
 
@@ -43,7 +46,8 @@ export class Register extends Component {
         title:"",
         age:"",
         hospital:"",
-      }
+      },
+      isProjectInfoKnow:false,
     };
     this.refreshProps = this.refreshProps.bind(this);
     this.HandleInformedConsent = this.HandleInformedConsent.bind(this);
@@ -234,6 +238,8 @@ export class Register extends Component {
       <div className={[style.ContentBox,'childcenter childcolumn childcontentstart'].join(" ")}>
         <AdView />
         <AuthBox />
+
+        {this.state.isProjectInfoKnow?'':<Beforereg onClose={(()=>{this.setState({isProjectInfoKnow:true})}).bind(this)}/>}
         {this.state.RegisterResult.alertshow ? (
           <div className={[style.FixLayer, "childcenter"].join(" ")}>
             {this.state.RegisterResult.result === true ? (
@@ -478,9 +484,9 @@ export class Register extends Component {
                 onChange={this.onInputChange.bind(this, "tel")}
               />
             </div>
-            <div className={[style.InputBox, "childcenter"].join(" ")} onClick={this.GetPublicCode}>
+            {/* <div className={[style.InputBox, "childcenter"].join(" ")} onClick={this.GetPublicCode}>
               <div className={[style.PhoneCodeButton, "childcenter"].join(" ")}>{this.state.getCodeCutdown === 60?'丨点击获取临床儿科杂志社邀请码丨':'重新发送邀请码剩余'+this.state.getCodeCutdown+'秒'}</div>
-            </div>
+            </div> */}
             <div className={[style.InputBox, "childcenter"].join(" ")}>
               <div
                 className={[
@@ -492,7 +498,7 @@ export class Register extends Component {
               </div>
               <input
                 value={this.state.formdata.code}
-                placeholder="请填写销售/专家/杂志社邀请码"
+                placeholder="请填写您的六位邀请码"
                 type="text"
                 className={style.Inputs}
                 onBlur={this.onInputBlur}
@@ -519,9 +525,28 @@ export class Register extends Component {
             onClick={this.HandleCheckCodeAlert}>
             确定
           </div>
+          <div className={style.RegisterBottom}>
+            <img src={projectinfobot} alt=""/>
+          </div>
         </div>
       </div>
     );
   }
 }
+
+class Beforereg extends Component{
+  constructor(props){
+    super(props);
+    this.state={};
+  }
+  render(){
+    return <div className={[style.BeforeregBox,'childcenter'].join(' ')}>
+      <div className={style.ProjectInfoBox}>
+        <img src={projectinfobefore} alt=""/>
+        <div className={[style.NextButton,'childcenter'].join(' ')} onClick={this.props.onClose}>前往注册</div>
+      </div>
+    </div>
+  }
+}
+
 export default Register;

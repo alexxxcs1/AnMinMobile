@@ -62,7 +62,9 @@ getCaseList(){
         if (res.code === 200) {
             this.state.data = res.data;
             this.state.casecount = res.count.resourceCount;
-            this.state.vedioCount = res.count.vedioCount;
+            this.state.videocount = res.count.vedioCount;
+            this.state.videourl = res.count.video;
+            
         }else{
             alert(res.msg)
         }
@@ -213,8 +215,8 @@ render() {
         <div className={[style.HandleGroupBox,'childcenter'].join(' ')}>
             <div className={this.state.HandleButtonShow?style.HandleButtonHide:style.HandleButtonShow} onClick={this.ShowHandleButton}></div>
             {this.state.HandleButtonShow?[
-                <UploadCase />,
-                <UploadVideo />
+                <UploadCase full={this.state.casecount<10?false:true}/>,
+                <UploadVideo full={this.state.videocount<1?false:true} video={this.state.videourl}/>
             ]:''}
             {this.state.scrollButton?<div className={style.ScrollToTop} onClick={this.ScrolltoTop}></div>:''}
         </div>

@@ -27,7 +27,7 @@ getAuth(){
             window.location.hash = '#/mobile/userregister';         
         }else if(res.code === 202){
           if (window.location.hash == '#/mobile/userregister') {
-            window.location.hash = '#/mobile/user';
+            // window.location.hash = '#/mobile/user';
           }
             
         }
