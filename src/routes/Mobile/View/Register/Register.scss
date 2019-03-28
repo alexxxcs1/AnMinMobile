@@ -261,3 +261,56 @@
     }
   }
 }
+
+.InformedConsent{
+  background: rgba($color: #fff, $alpha: 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+
+  .InformedConsentContent{
+    width: 628px;
+    height: 1016px;
+    background: linear-gradient(-25deg,#EECF86,#F8E8B5,#FFFDE6);
+    border-radius: 10px 10px 0 0;
+
+    .TitleBox{
+      width: 535px;
+      img{
+        width: 100%;
+      }
+    }
+    .NameTitle{
+      width: 358px;
+      img{
+        width: 100%;
+      }
+    }
+
+    .Content{
+      margin-top: -30px;
+      width: 535px;
+      height: 476px;
+      overflow: scroll;
+      word-break: break-all;
+      font-size: 24px;
+      color: #EA5E00;
+      line-height: 51.6px;
+      font-weight: 400;
+      text-align:justify;
+    }
+
+    .ConfirmButton{
+      width: 274px;
+      height: 61px;
+      margin: 63px 0;
+      background: #EA5E00;
+      border-radius: 8px;
+      font-size: 24px;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+}

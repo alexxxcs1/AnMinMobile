@@ -27,7 +27,8 @@ render() {
             <div className={style.RuleBottom}>
               <div className={[style.ButtonGroup,'childcenter'].join(' ')}>
                 <div className={[style.Button,'childcenter childcolumn'].join(' ')}>
-                  <span>专家</span>
+                  <span>项目</span>
+                  {/* <span>介绍</span> */}
                   <span>视频</span>
                 </div>
                 <div className={[style.Button,'childcenter childcolumn'].join(' ')}>

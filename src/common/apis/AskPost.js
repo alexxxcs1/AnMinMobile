@@ -81,6 +81,12 @@ const AskPost = (ajaxinstance) => {
         username,password
       }));
     }
+    //专家端修改密码
+    customer.raterChangePassword = (passW,newPassW,confirmPassW) => {
+      return ajaxinstance.post('index/changePassWord',qs.stringify({
+        passW,newPassW,confirmPassW
+      }));
+    }
     // 专家端判断是否登录
     customer.raterIsLogin = () => {
       return ajaxinstance.post('index/TeacherIsCheck');

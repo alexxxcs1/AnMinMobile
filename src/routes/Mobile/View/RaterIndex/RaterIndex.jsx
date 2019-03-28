@@ -5,6 +5,7 @@ import AllCase from './Views/AllCase'
 import ChosenCase from './Views/ChosenCase'
 import RaterAuthBox from '../../components/RaterAuthBox';
 import {api} from 'common/app'
+import ChangePassword from './components/ChangePassword'
   
 export class RaterIndex extends Component {
 constructor(props) {
@@ -56,6 +57,7 @@ render() {
   return (
     <div className={style.RaterIndexBox}>
         <RaterAuthBox />
+        {this.state.raterinfo?(this.state.raterinfo.IsNeedChangePassW == 0?<ChangePassword />:''):''}
         {this.state.raterinfo?<div className={[style.TopNavBox,'childcenter'].join(' ')}>
             {this.state.raterinfo.status == 2?<div className={style.NavButtonOutBox}>
               <div className={[style.NavButton,'childcenter',this.state.navStatus==='all'?style.MatchNav:''].join(' ')} onClick={this.HandleNav.bind(this,'all')}>

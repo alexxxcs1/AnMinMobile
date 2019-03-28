@@ -67,6 +67,13 @@
             font-size: 20px;
             position: relative;
             margin-top: 36px;
+            .ScoreType{
+                margin: 0 5px;
+                span:nth-child(1){
+                    color: #e66d01;
+                    font-size: 30px;
+                }
+            }
             .ScoreAll{
                 position: absolute;
                 top: 50%;

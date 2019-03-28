@@ -67,6 +67,11 @@
             color: #fff;
             font-size: 24px;
         }
+        .ForgetPassword{
+            margin: 34px 0px;
+            font-size: 24px;
+            color: #fff;
+        }
     }
     .BottomImageBox{
         width: 727px;
@@ -77,5 +82,27 @@
         img{
             width: 100%;
         }
+    }
+}
+
+.ForgetBox{
+
+    width: 405px;
+    img{
+        width: 100%;
+    }
+    span{
+        font-size: 24px;
+        color: #fff;
+        margin-top: 27px;
+    }
+    .ReturnButton{
+        width: 158px;
+        height: 48px;
+        background: #f77d31;
+        box-shadow: #fff 0 0 0 2px inset;
+        margin-top: 60px;
+        color: #fff;
+        font-size: 24px;
     }
 }

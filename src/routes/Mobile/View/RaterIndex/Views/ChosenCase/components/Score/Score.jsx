@@ -30,15 +30,35 @@ HandleSetScore(index,score){
     this.state.scoreArray[index] = score;
     this.setState(this.state);
 }
-getCountScore(){
-    let result = 0;
-    for (let z = 0; z < this.state.scoreArray.length; z++) {
-        let score = this.state.scoreArray[z];
-        if (!isNaN(parseInt(score))) {
-            result = result + parseInt(score);
+getCountScore(type){
+        let result = 0;
+        switch (type) {
+            default:
+            case 'all':
+                
+                for (let z = 0; z < this.state.scoreArray.length; z++) {
+                    let score = this.state.scoreArray[z];
+                    if (!isNaN(parseInt(score))) {
+                        result = result + parseInt(score);
+                    }
+                }
+                break;
+            case 'soap':
+                for (let z = 0; z < 4; z++) {
+                    const score = this.state.scoreArray[z];
+                    if (score) {
+                        result = result + parseInt(score);
+                    }
+                }
+                break;
+            case 'analysis':
+                let _score4 = this.state.scoreArray[4]?this.state.scoreArray[4]:0;
+                let _score5 = this.state.scoreArray[5]?this.state.scoreArray[5]:0;
+                result = parseInt(_score4)+parseInt(_score5);
+                break;
         }
-    }
-    return result;
+        return result;
+    
 }
 SubmitScore(){
     let allfill = true;
@@ -107,7 +127,7 @@ render() {
             <div className={[style.FormRow,'childcenter'].join(' ')}>
                 <div className={[style.FormColumn,'childcenter childcolumn'].join(' ')}>
                     <span>客观检查</span> 
-                    <span>（5分）</span>
+                    <span>（10分）</span>
                 </div>
                 <div className={[style.FormColumn,'childcenter childcolumn childalignstart'].join(' ')}>
                     <p>1、体检结果</p>
@@ -116,7 +136,7 @@ render() {
                 </div>
                 <div className={[style.FormColumn,'childcenter'].join(' ')}>
                     <div className={style.SelectBox}>
-                        <SetScoreBox value={this.state.scoreArray[1]} max={5} min={1} onSelected={this.HandleSetScore.bind(this,1)}/>
+                        <SetScoreBox value={this.state.scoreArray[1]} max={10} min={1} onSelected={this.HandleSetScore.bind(this,1)}/>
                     </div>
                 </div>
             </div>
@@ -141,7 +161,7 @@ render() {
             <div className={[style.FormRow,'childcenter'].join(' ')}>
                 <div className={[style.FormColumn,'childcenter childcolumn'].join(' ')}>
                     <span>处置计划</span> 
-                    <span>（20分）</span>
+                    <span>（15分）</span>
                 </div>
                 <div className={[style.FormColumn,'childcenter childcolumn childalignstart'].join(' ')}>
                     <p>1、进一步诊查计划</p>
@@ -152,7 +172,7 @@ render() {
                 </div>
                 <div className={[style.FormColumn,'childcenter'].join(' ')}>
                     <div className={style.SelectBox}>
-                        <SetScoreBox value={this.state.scoreArray[3]} max={20} min={1} onSelected={this.HandleSetScore.bind(this,3)}/>
+                        <SetScoreBox value={this.state.scoreArray[3]} max={15} min={1} onSelected={this.HandleSetScore.bind(this,3)}/>
                     </div>
                 </div>
             </div>
@@ -190,11 +210,9 @@ render() {
                 </div>
             </div>
             <div className={[style.AllCount,'childcenter'].join(' ')}>
-                <span>总计</span>
-                <div className={style.ScoreAll}>
-                    <span>{this.getCountScore()}</span>
-                    <span>分</span>
-                </div>
+                <div className={style.ScoreType} >SOAP病例描述 <span style={{color:'#DA4913'}}>{this.getCountScore('soap')}</span>  分</div>
+                <div className={style.ScoreType} >病例分析/归纳/收获/总结 <span style={{color:'#DA4913'}}>{this.getCountScore('analysis')}</span>  分</div>
+                <div className={style.ScoreType} >总计 <span style={{color:'#DA4913'}}>{this.getCountScore()}</span>  分</div>
             </div>
         </div>
         <div onClick={this.SubmitScore} className={[style.SubmitButton,'childcenter'].join(' ')}>
@@ -213,7 +231,7 @@ class SetScoreBox extends Component{
             DropBox:false,
             min:Number.MIN_SAFE_INTEGER,
             max:Number.MAX_SAFE_INTEGER,
-            selectScore:1,
+            selectScore:null,
             selected:null
         };
         this.ScrollTouchStart = this.ScrollTouchStart.bind(this);
@@ -318,8 +336,8 @@ class SetScoreBox extends Component{
                         onTouchEnd={this.ScrollTouchEnd}
                     >
                         <span>{(this.state.selectScore-1)<this.state.min?this.state.max:this.state.selectScore-1}</span>
-                        <span>{this.state.selectScore}</span>
-                        <span>{(this.state.selectScore+1)>this.state.max?this.state.min:this.state.selectScore+1}</span>
+                        <span>{this.state.selectScore==null?1:this.state.selectScore}</span>
+                        <span>{((this.state.selectScore==null?1:this.state.selectScore)+1)>this.state.max?this.state.min:(this.state.selectScore==null?1:this.state.selectScore)+1}</span>
                     </div>
                 </div>
             </div>:''}

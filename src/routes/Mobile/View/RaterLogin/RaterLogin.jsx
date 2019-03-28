@@ -5,6 +5,7 @@ import mobilebottom from 'assets/mobilebottom.png'
 import raterlogintitle from 'assets/raterlogintitle.png'
 import {api} from 'common/app'
 import RaterAuthBox from '../../components/RaterAuthBox';
+import customerservice from 'assets/customerservice.png'
   
 export class RaterLogin extends Component {
 constructor(props) {
@@ -58,7 +59,12 @@ render() {
         <div className={style.LogoBox}>
             <img src={raterloginlogo} alt=""/>
         </div>
-        <div className={[style.ContentBox,'childcenter childcolumn'].join(' ')}>
+
+        {this.state.forgetservice?<div className={[style.ContentBox,'childcenter childcolumn'].join(' ')}>
+            <ForgetPassword return={(()=>{this.setState({forgetservice:false})}).bind(this)}/>
+        </div>:''}
+
+        {this.state.forgetservice?'':<div className={[style.ContentBox,'childcenter childcolumn'].join(' ')}>
             <div className={style.LoginTitle}>
                 <img src={raterlogintitle} alt=""/>
             </div>
@@ -77,7 +83,11 @@ render() {
                 </div>
             </div>
             <div className={[style.SubmitButton,'childcenter'].join(' ')} onClick={this.LoginAction}>确认</div>
-        </div>
+            <div className={style.ForgetPassword} onClick={(()=>{this.setState({forgetservice:true})}).bind(this)}>
+                忘记密码
+            </div>
+        </div>}
+
         <div className={style.BottomImageBox}>
             <img src={mobilebottom} alt=""/>
         </div>
@@ -86,4 +96,19 @@ render() {
    )
    }
 }
+
+class ForgetPassword extends Component{
+    constructor(props){
+        super(props);
+        this.state={};
+    }
+    render(){
+        return <div className={[style.ForgetBox,'childcenter childcolumn'].join(' ')}>
+            <img src={customerservice} alt=""/>
+            <span>电话联系客服</span>
+            <div className={[style.ReturnButton,'childcenter'].join(' ')} onClick={this.props.return}>完成</div>
+        </div>
+    }
+}
+
 export default RaterLogin
