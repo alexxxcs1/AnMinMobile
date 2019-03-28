@@ -506,7 +506,7 @@ export class Register extends Component {
               </div>
               <input
                 value={this.state.formdata.code}
-                placeholder="请填写您的六位邀请码"
+                placeholder="请输入您的邀请码"
                 type="text"
                 className={style.Inputs}
                 onBlur={this.onInputBlur}
