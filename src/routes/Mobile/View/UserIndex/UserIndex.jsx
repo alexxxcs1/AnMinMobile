@@ -52,7 +52,7 @@ render() {
         <AdView />
         <AuthBox />
 
-        {this.state.ProjectInfoShow? <div className={[style.ProjectInfo,'childcenter'].join(' ')}>
+        {/* {this.state.ProjectInfoShow? <div className={[style.ProjectInfo,'childcenter'].join(' ')}> */}
           <div className={style.InfoBox}>
             <div className={style.CloseButton} onClick={this.ProjectInfoHandle.bind(this,false)}></div>
             <div className={[style.Content,'childcenter childcolumn'].join(' ')}>
