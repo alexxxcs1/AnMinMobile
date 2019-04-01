@@ -46,10 +46,13 @@ export class UploadCase extends Component {
             alert(res.msg);
             this.state.loaded = 0;
             this.state.loading = false;
+            
             this.setState(this.state);
             clearInterval(uploadBarInter);
         }
         this.state.AjaxDone = true;
+        this.state.TipsAlertShow = false;
+        this.setState(this.state);
     },err=>{
 
     });

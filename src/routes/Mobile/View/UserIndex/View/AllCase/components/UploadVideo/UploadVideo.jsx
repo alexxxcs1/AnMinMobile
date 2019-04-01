@@ -64,6 +64,8 @@ export class UploadVideo extends Component {
             clearInterval(uploadBarInter);
         }
         this.state.AjaxDone = true;
+        this.state.TipsAlertShow = false;
+        this.setState(this.state);
     },err=>{
 
     });

@@ -24,6 +24,8 @@ refreshProps(props) {
     console.log(props);
     this.state.id = props.id?props.id:this.state.id;
     this.state.scoreArray = props.score?props.score:this.state.scoreArray;
+    console.log(this.state.scoreArray);
+    
     this.setState(this.state);
 }
 HandleSetScore(index,score){
@@ -73,7 +75,7 @@ SubmitScore(){
             console.log(res);
             if (res.code == 200) {
                 alert('打分成功');
-                this.props.onUpdate({
+                this.props.onUpdate(this.state.scoreArray,{
                     index:null,
                     show:false,
                     id:null,

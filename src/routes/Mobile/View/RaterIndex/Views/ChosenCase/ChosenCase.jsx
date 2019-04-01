@@ -258,9 +258,10 @@ onSearchValueChange(value){
 onSearchValue(){
     // this.getCaseList();
 }
-UpdateScore(index,option,sum,){
+UpdateScore(index,newarray,option,sum){
     this.state.EditScoreOption = option;
     this.state.data[index].sum = sum;
+    this.state.data[index].may_score = newarray;
     this.setState(this.state);
 }
 render() {
