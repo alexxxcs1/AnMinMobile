@@ -52,7 +52,7 @@ render() {
         <AdView />
         <AuthBox />
 
-        {/* {this.state.ProjectInfoShow? <div className={[style.ProjectInfo,'childcenter'].join(' ')}> */}
+        {/* {this.state.ProjectInfoShow? <div className={[style.ProjectInfo,'childcenter'].join(' ')}> 
           <div className={style.InfoBox}>
             <div className={style.CloseButton} onClick={this.ProjectInfoHandle.bind(this,false)}></div>
             <div className={[style.Content,'childcenter childcolumn'].join(' ')}>
@@ -68,6 +68,7 @@ render() {
             </div>
           </div>
         </div>:''}
+        */}
 
         <div className={[style.TopNavBox,'childcenter'].join(' ')}>
             <div className={[style.NavButton,'childcenter',this.state.navStatus==='all'?style.MatchNav:''].join(' ')} onClick={this.HandleNav.bind(this,'all')}>
