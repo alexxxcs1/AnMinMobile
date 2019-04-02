@@ -173,6 +173,7 @@ export class Register extends Component {
                   result: null,
                   value: null
                 };
+                this.setState(this.state);
               }, 1000);
             } else {
               this.state.RegisterResult = {
