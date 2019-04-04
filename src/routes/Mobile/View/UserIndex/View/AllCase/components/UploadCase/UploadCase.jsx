@@ -36,12 +36,14 @@ export class UploadCase extends Component {
   fileChange(e){
     // if (!e.target.files[0]) return;
     let file = e.target.files[0];
+    console.log(file);
+    
     let formdata = new FormData();
     e.target.value = '';
     formdata.append('file',file);
     api.uploadCase(formdata).then(res=>{
         if (res.code === 200) {
-            
+            this.context.refreshList();
         }else{
             alert(res.msg);
             this.state.loaded = 0;

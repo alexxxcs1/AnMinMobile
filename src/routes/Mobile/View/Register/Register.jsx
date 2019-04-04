@@ -272,7 +272,7 @@ export class Register extends Component {
                       "childcolumn"
                     ].join(" ")}>
                     <span>注册成功</span>
-                    <span>正在为您跳转，请稍后</span>
+                    <span>正在为您跳转，请稍候</span>
                   </div>
                 </div>
               </MobileTipAlert>
