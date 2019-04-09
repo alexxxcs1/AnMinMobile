@@ -1,0 +1,176 @@
+.ScoreBox{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    background: #f9f2d5;
+
+    .ScoreFormBox{
+        width: 676px;
+        padding: 16px;
+        background: rgba($color: #fdfce8, $alpha: 0.72);
+        .FormTitle{
+            width: 100%;
+            height: 72px;
+            background: linear-gradient(-115deg, #e66d01 ,#f3c05e);
+            .FormColumn{
+                height: calc(100% - 24px);
+                color: #fff;
+                font-size: 24px;
+                font-weight: 600;
+                
+            }
+            .FormColumn:nth-child(1){
+                width: 109px;
+            }
+            .FormColumn:nth-child(2){
+                width: calc(100% - 109px);
+                padding: 10px;
+                width: calc(100% - 109px - 20px);
+            }
+            .FormColumn:nth-child(3){
+                width: calc(109px - 24px);
+                padding: 12px;
+            }
+        }
+
+        .FormRow{
+            width: 100%;
+            .FormColumn{
+                height: 100%;
+                color: #000;
+                font-size: 18px;
+                font-weight: 300;
+
+                .SelectBox{
+                    width: 100%;
+                    height: 38px;
+                    background: #f3c05e;
+                    font-size: 18px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: bold;
+                }
+            }
+            .FormColumn:nth-child(1){
+                width: 109px;
+            }
+            .FormColumn:nth-child(2){
+                padding: 10px;
+                width: calc(100% - 109px - 20px);
+            }
+            .FormColumn:nth-child(3){
+                width: calc(109px - 24px);
+                padding: 12px;
+            }
+        }
+        .AllCount{
+            width: 100%;
+            font-size: 20px;
+            position: relative;
+            margin-top: 36px;
+            .ScoreType{
+                margin: 0 5px;
+                span:nth-child(1){
+                    color: #e66d01;
+                    font-size: 30px;
+                }
+            }
+            .ScoreAll{
+                position: absolute;
+                top: 50%;
+                right: 16px;
+                transform: translateY(-50%);
+                z-index: 0;
+                span:nth-child(1){
+                    color: #e66d01;
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+    .SubmitButton{
+        width: 241px;
+        height: 46px;
+        margin-top: 20px;
+        background: #e66d01;
+        color: #fff;
+        font-size: 24px;
+    }
+}
+
+.ScoreSelectBox{
+    width: 100%;
+    height: 100%;
+    .ScoreValue{
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        span:nth-child(1){
+            font-size: 20px;
+        }
+        span:nth-child(2){
+            margin-left: 5px;
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: #fff 10px solid;
+            border-bottom: transparent 0px solid;
+            border-left: transparent 7px solid;
+            border-right: transparent 7px solid;
+        }
+    }
+    .DropBox{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 99;
+        background: rgba($color: #000000, $alpha: 0.6);
+
+        .SetScoreBox{
+            width: 100%;
+            background: #fff;
+            .HandleGroup{
+                width: 100%;
+                height: 80px;
+                background: rgba($color: #999, $alpha: 0.1);
+
+                .ButtonBox{
+                    width: 50%;
+                    height: 100%;
+
+                    .Button{
+                        width: 100px;
+                        height: 60px;
+                        background: #f3c05e;
+                        margin: 0 20px;
+                        color: #fff;
+                        font-size: 24px;
+                    }
+                }
+            }
+            .ScrollBox{
+                width: 100%;
+                height: 400px;
+                span:nth-child(1){
+                    font-size: 40px;
+                    color: rgba($color: #000000, $alpha: 0.6);
+                }
+                span:nth-child(2){
+                    font-size: 80px;
+                    color: rgba($color: #000000, $alpha: 1);
+                }
+                span:nth-child(3){
+                    font-size: 40px;
+                    color: rgba($color: #000000, $alpha: 0.6);
+                }
+            }
+            
+        }
+    }
+}

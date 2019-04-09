@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import style from "./ChosenCase.scss";
 import Comment from './components/Comment'
+import scroeicon from 'assets/scroeicon.png'
+
+import Score from './components/Score'
 
 import {api} from 'common/app'
 import PropTypes from "prop-types";
@@ -19,6 +22,10 @@ export class ChosenCase extends Component {
       contentBoxOption:{
         show:false,
         content:null,
+      },
+      scoreBoxOption:{
+        show:false,
+        content:null,
       }
     };
     this.refreshProps = this.refreshProps.bind(this);
@@ -28,6 +35,7 @@ export class ChosenCase extends Component {
     this.setScrollListener = this.setScrollListener.bind(this);
     this.ScrolltoTop = this.ScrolltoTop.bind(this);
     this.HandleCommentBox = this.HandleCommentBox.bind(this);
+    this.HandleScoreBox = this.HandleScoreBox.bind(this);
   }
   getChildContext() {
     return {
@@ -124,6 +132,9 @@ export class ChosenCase extends Component {
             "childcolumn",
             "childalignstart"
           ].join(" ")}>
+          {this.state.data[z].sum?<div onClick={this.HandleScoreBox.bind(this,{show:true,content:this.state.data[z].may_score})} className={[style.CaseStatus,'childcenter'].join(' ')} style={{backgroundImage:'url('+scroeicon+')'}}>
+                {this.state.data[z].sum + '分'}
+          </div>:''}
           <div className={style.CaseTitle}>
             {" "}
             {this.state.data[z].name}
@@ -190,9 +201,14 @@ export class ChosenCase extends Component {
     onHandleScroll = false;
     clearInterval(this.scrollTopInterval);
   }
+  HandleScoreBox(option){
+    this.state.scoreBoxOption = option;
+    this.setState(this.state);
+  }
   render() {
     return (
       <div className={style.ListBox} ref={"scrollbody"}>
+        {this.state.scoreBoxOption.show?<Score handle={this} score={this.state.scoreBoxOption.content} handle={this.HandleScoreBox}/>:''}
         {this.state.contentBoxOption.show?<Comment content={this.state.contentBoxOption.content}/>:''}
         <div
           className={[style.ListBody, "childcenter", "childcolumn"].join(" ")}>
