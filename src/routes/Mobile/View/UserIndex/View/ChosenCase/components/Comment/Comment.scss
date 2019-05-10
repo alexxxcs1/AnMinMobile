@@ -11,14 +11,16 @@
         position: absolute;
         top: 0px;
         left: 50%;
-        transform: translateX(-50%) translateY(-50%)
+        transform: translateX(-50%) translateY(-50%);
+        pointer-events: none;
     }
     .CommentBotImg{
-        width: 105%;
+        width: 108%;
         position: absolute;
         bottom: 0px;
         left: 50%;
-        transform: translateX(-50%) translateY(50%)
+        transform: translateX(-50%) translateY(10%);
+        pointer-events: none;
     }
 
     .CloseButton {
@@ -37,11 +39,73 @@
     .DetialBox {
         width: 488px;
         height: 90%;
-        overflow: auto;
-        font-size: 28px;
-        font-weight: 400;
-        color: #fff;
-
+        
+        position: relative;
+        .DetialTextArea{
+            width: 100%;
+            height: 100%;
+            word-break: break-all;
+            overflow: auto;
+            font-size: 28px;
+            font-weight: 400;
+            color: #fff;
+        }
+        .LeftArrow{
+            position: absolute;
+            background: #fff;
+            left: 0px;
+            top: 50%;
+            width: 0px;
+            height: 0px;
+            transform: translateX(-80px) translateY(-50%);
+            &::after{
+                position: absolute;
+                content: '';
+                width: 22px;
+                height: 35px;
+                top: 50%;
+                background: #fff;
+                transform: skew(-45deg,0deg) translateY(-48%);
+            }
+            &::before{
+                position: absolute;
+                content: '';
+                width: 22px;
+                height: 35px;
+                top: 50%;
+                background: #fff;
+                transform: skew(45deg,0deg) translateY(48%);
+            }
+        }
+        .RightArrow{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #000;
+            right: 0px;
+            top: 50%;
+            width: 0px;
+            height: 0px;
+            transform: translateX(60px) translateY(-50%);
+            &::after{
+                position: absolute;
+                content: '';
+                width: 22px;
+                height: 35px;
+                top: 50%;
+                background: #fff;
+                transform: skew(45deg,0deg) translateY(-48%);
+            }
+            &::before{
+                position: absolute;
+                content: '';
+                width: 22px;
+                height: 35px;
+                top: 50%;
+                background: #fff;
+                transform: skew(-45deg,0deg) translateY(48%);
+            }
+        }
         &::-webkit-scrollbar {
             width: 0;
         }
